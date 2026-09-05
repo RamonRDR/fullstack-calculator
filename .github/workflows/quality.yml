@@ -1,0 +1,48 @@
+name: Quality
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  backend:
+    name: Backend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.22.x'
+      - name: Run backend tests with coverage
+        run: go test ./... -coverprofile=coverage.out
+      - name: Show backend coverage
+        run: go tool cover -func=coverage.out
+      - name: Build backend
+        run: go build ./cmd/server
+
+  frontend:
+    name: Frontend checks
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: frontend
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install frontend dependencies
+        run: npm install
+      - name: Type check
+        run: npm run typecheck
+      - name: Run frontend tests
+        run: npm test
+      - name: Run frontend coverage
+        run: npm run coverage
+      - name: Build frontend
+        run: npm run build
