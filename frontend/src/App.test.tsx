@@ -1,10 +1,11 @@
 import { afterEach, describe, expect, it, vi } from 'vitest'
-import { render, screen } from '@testing-library/react'
+import { cleanup, render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { App } from './App'
 
 describe('App', () => {
   afterEach(() => {
+    cleanup()
     vi.unstubAllGlobals()
   })
 
