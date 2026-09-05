@@ -6,9 +6,9 @@ import (
 )
 
 var (
-	ErrDivisionByZero      = errors.New("division by zero")
-	ErrInvalidOperand      = errors.New("operands must be finite numbers")
-	ErrInvalidResult       = errors.New("result is not a finite number")
+	ErrDivisionByZero       = errors.New("division by zero")
+	ErrInvalidOperand       = errors.New("operands must be finite numbers")
+	ErrInvalidResult        = errors.New("result is not a finite number")
 	ErrUnsupportedOperation = errors.New("unsupported operation")
 )
 

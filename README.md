@@ -30,7 +30,7 @@ See [`docs/technical-design.md`](docs/technical-design.md) for the concise desig
 - TypeScript
 - Vite
 - Vitest + Testing Library
-- Go 1.22+
+- Go 1.26+
 - Go standard library (`net/http`, `encoding/json`, `testing`)
 - GitHub Actions for automated quality checks
 
@@ -38,7 +38,7 @@ No database, authentication, state-management library, UI framework, or backend 
 
 ## Prerequisites
 
-- Go 1.22 or newer
+- Go 1.26 or newer
 - Node.js 20 or newer
 - npm
 
@@ -163,9 +163,9 @@ Production build:
 npm run build
 ```
 
-The project does not configure a separate linter. TypeScript strict checking, tests, and production builds provide the intentionally small quality gate for this assessment.
+The project does not configure a separate frontend linter. TypeScript strict checking, behavioral tests, production builds, and Go formatting checks provide the intentionally small quality gate for this assessment.
 
-GitHub Actions runs the backend tests, backend coverage command, backend build, frontend type check, frontend tests, frontend coverage command, and frontend production build on pushes and pull requests targeting `main`.
+GitHub Actions runs Go formatting, backend tests and coverage, the backend build, frontend type checking, frontend tests and coverage, and the frontend production build on pushes and pull requests targeting `main`.
 
 ## Important design decisions
 

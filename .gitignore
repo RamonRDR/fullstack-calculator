@@ -7,6 +7,8 @@ frontend/*.tsbuildinfo
 # Backend generated files
 backend/coverage.out
 backend/bin/
+backend/server
+backend/server.exe
 
 # Environment files
 .env
