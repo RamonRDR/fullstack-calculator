@@ -84,7 +84,7 @@ jobs:
           trap cleanup EXIT
 
           backend_ready=false
-          for attempt in {1..30}; do
+          for attempt in {1..120}; do
             if curl --fail --silent http://127.0.0.1:8080/api/calculate \
               -H 'Content-Type: application/json' \
               -d '{"operation":"multiply","a":6,"b":7}' | grep -q '"result":42'; then
@@ -100,7 +100,7 @@ jobs:
           fi
 
           frontend_ready=false
-          for attempt in {1..30}; do
+          for attempt in {1..60}; do
             if curl --fail --silent http://127.0.0.1:5173/ > /dev/null; then
               frontend_ready=true
               break
