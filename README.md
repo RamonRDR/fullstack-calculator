@@ -165,7 +165,7 @@ npm run build
 
 The project does not configure a separate frontend linter. TypeScript strict checking, behavioral tests, production builds, and Go formatting checks provide the intentionally small quality gate for this assessment.
 
-GitHub Actions runs Go formatting, backend tests and coverage, the backend build, frontend type checking, frontend tests and coverage, and the frontend production build on pushes and pull requests targeting `main`.
+GitHub Actions runs Go formatting, backend tests and coverage, the backend build, frontend type checking, frontend tests and coverage, and the frontend production build on pushes and pull requests targeting `main`. A final smoke job starts both development servers, verifies the Go endpoint directly, and repeats the calculation through Vite's `/api` proxy to validate the full development path.
 
 ## Important design decisions
 
