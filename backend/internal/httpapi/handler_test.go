@@ -28,9 +28,9 @@ func TestCalculateEndpointReturnsResult(t *testing.T) {
 
 func TestCalculateEndpointValidationErrors(t *testing.T) {
 	tests := []struct {
-		name       string
-		body       string
-		wantError  string
+		name      string
+		body      string
+		wantError string
 	}{
 		{name: "division by zero", body: `{"operation":"divide","a":10,"b":0}`, wantError: "division by zero"},
 		{name: "unsupported operation", body: `{"operation":"modulo","a":10,"b":3}`, wantError: "unsupported operation"},

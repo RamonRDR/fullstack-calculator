@@ -39,7 +39,7 @@ No database, authentication, state-management library, UI framework, or backend 
 ## Prerequisites
 
 - Go 1.26 or newer
-- Node.js 20 or newer
+- Node.js 20.19+ or 22.12+
 - npm
 
 ## Run locally
